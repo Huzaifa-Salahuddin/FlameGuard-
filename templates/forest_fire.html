@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FlameGuard - Forest Fire Prevention</title>
+  <link rel="icon" href="../static/Logo/logo.png" type="image/png">
+
+  <!-- Google Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Materialize CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link href="./static/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+
+<body>
+  <nav class="black darken-1">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="{{ url_for('hello_world') }}" class="brand-logo" style="display: flex; align-items: center;">
+        <img src="../static/Logo/logo.png" alt="Logo" height="30px" width="30px" style="margin-right: 10px;">
+        FlameGuard
+      </a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="{{ url_for('hello_world') }}">Home</a></li>
+        <li><a href="{{ url_for('charts') }}">Data Analysis</a></li>
+      </ul>
+    </div>
+  </nav>
+  
+
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <h1 class="header center blue-text">Forest Fire Prevention</h1>
+      <div class="row center">
+        <h5 class="header col s12 light">Predict the probability of Forest-Fire Occurrence</h5>
+      </div>
+
+      <div class="row">
+        <form action='/predict' method="POST" class="col s12">
+          <div class="row">
+            <div class="input-field col s4">
+              <input id="temperature" name='Temperature' type="number" step="0.1" class="validate" required>
+              <label for="temperature">Temperature (in Celsius)</label>
+            </div>
+            <div class="input-field col s4">
+              <input id="oxygen" name="Oxygen" type="number" step="0.1" class="validate" required>
+              <label for="oxygen">Oxygen (in percentage)</label>
+            </div>
+            <div class="input-field col s4">
+              <input id="humidity" name="Humidity" type="number" step="0.1" class="validate" required>
+              <label for="humidity">Humidity (in percentage)</label>
+            </div>
+          </div>
+          <div class="row center">
+            <button type="submit" class="btn-large waves-effect waves-light blue">Predict Probability</button>
+          </div>
+        </form>
+      </div>
+      <h4 class="center">{{pred}}</h4>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="section">
+      <div class="row">
+        <div class="col s12 m4">
+          <div class="icon-block center">
+            <h2 class="light-blue-text"><i class="material-icons large">wb_sunny</i></h2>
+            <h5 class="center">Monitor Conditions</h5>
+            <p>Keep track of environmental variables that influence forest fire risks.</p>
+          </div>
+        </div>
+        <div class="col s12 m4">
+          <div class="icon-block center">
+            <h2 class="light-blue-text"><i class="material-icons large">fireplace</i></h2>
+            <h5 class="center">Fire Prediction</h5>
+            <p>Predict forest fire probabilities based on temperature, oxygen, and humidity.</p>
+          </div>
+        </div>
+        <div class="col s12 m4">
+          <div class="icon-block center">
+            <h2 class="light-blue-text"><i class="material-icons large">eco</i></h2>
+            <h5 class="center">Protect Ecosystem</h5>
+            <p>Minimize the damage to forests and biodiversity by early detection.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<br> <br>
+  <footer class="page-footer black darken-1">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">FlameGuard</h5>
+          <p class="grey-text text-lighten-4">We are a group of students passionate about protecting nature using technology. Support our initiative to prevent forest fires.</p>
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Links</h5>
+          <ul>
+            <li><a class="white-text" href="#!">Github Repo</a></li>
+            <li><a class="white-text" href="#!">Blog</a></li>
+            <li><a class="white-text" href="eda.html">Data Analysis</a></li>
+          </ul>
+        </div>
+        
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+        Made for <a class="orange-text text-lighten-3" href="#">TechWiz 5</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Materialize and JS -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $('.sidenav').sidenav();
+    });
+  </script>
+</body>
+</html>

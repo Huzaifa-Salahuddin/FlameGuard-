@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FlameGuard - Data Analysis</title>
+  <link rel="icon" href="../static/Logo/logo.png" type="image/png">
+  <!-- Google Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Materialize CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link href="./static/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+
+<body>
+  <nav class="black darken-1">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="{{ url_for('hello_world') }}" class="brand-logo" style="display: flex; align-items: center;">
+        <img src="../static/Logo/logo.png" alt="Logo" height="30px" width="30px" style="margin-right: 10px;">
+        FlameGuard
+      </a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="{{ url_for('hello_world') }}">Home</a></li>
+        <li><a href="{{ url_for('charts') }}">Data Analysis</a></li>
+      </ul>
+    </div>
+  </nav>
+  
+
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <h1 class="header center blue-text">Forest Fire Data Analysis</h1>
+      <div class="row center">
+        <h5 class="header col s12 light">Visualizing Data for Better Insights</h5>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="section">
+
+      <!-- Chart 1 Section -->
+      <div class="row">
+        <div class="col s12 m6">
+          <h5 class="center">Boxplot of FWI</h5>
+          <p class="light">The boxplot of the Fire Weather Index (FWI) is crucial for visualizing the distribution and variability of fire danger levels across different conditions. By highlighting the range, median, and potential outliers, it helps researchers and decision-makers identify critical thresholds for fire risk, enabling better preparedness and response strategies to mitigate the impact of forest fires.</p>
+          <div class="chart-container center">
+            <img src="../static/EDA Chart images/Boxplot of FWI.png" alt="Temperature vs Fire Occurrence" >
+          </div>
+        </div>
+      </div>
+
+      <!-- Chart 2 Section -->
+      <div class="row">
+        <div class="col s12 m6">
+          <h5 class="center">DC</h5>
+          <p class="light">The chart is a histogram showing the distribution of the variable "DC" for two categories: "Fire" and "Not Fire". The x-axis represents the values of "DC" and the y-axis represents the count of occurrences of each value. The green bars represent the count of "Fire" incidents, while the blue bars represent the count of "Not Fire" incidents. The chart shows that the majority of "DC" values for both categories are between 0 and 50, with fewer values occurring at higher ranges.</p>
+          <div class="chart-container center">
+            <img src="../static/EDA Chart images/DC.png" alt="Humidity vs Fire Occurrence">
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Chart 3 Section -->
+      <div class="row">
+        <div class="col s12 m6">
+          <h5 class="center">Box Plot of Whole Dataset</h5>
+          <p class="light">The boxplot also shows outliers, which are data points that are significantly different from the rest of the data. These are represented by individual points outside of the whiskers.</p>
+          <div class="chart-container center">
+            <img src="../static/EDA Chart images/Boxplot of Given Dataset.png" alt="Wind Speed vs Fire Spread" style="max-width: 100%; height: auto;">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12 m6">
+          <h5 class="center">BUI</h5>
+          <p class="light">The histogram shows that the majority of "BUI" values for both categories are between 0 and 10. There are fewer occurrences of higher "BUI" values. The distribution of "BUI" values for "Fire" and "Not Fire" is similar, with both categories having a peak around 0-10.</p>
+          <div class="chart-container center">
+            <img src="../static/EDA Chart images/BUI.png" alt="Wind Speed vs Fire Spread" style="max-width: 100%; height: auto;">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12 m6">
+          <h5 class="center">Classes</h5>
+          <p class="light">This Chart showing number of classes</p>
+          <div class="chart-container center">
+            <img src="../static/EDA Chart images/Classes.png" alt="Wind Speed vs Fire Spread" style="max-width: 100%; height: auto;">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12 m6">
+          <h5 class="center">Columns </h5>
+          <p class="light">All columns of our data set in histogram</p>
+          <div class="chart-container center">
+            <img src="../static/EDA Chart images/Columns eda.png" alt="Wind Speed vs Fire Spread" style="max-width: 100%; height: auto;">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12 m6">
+          <h5 class="center">DMC</h5>
+          <p class="light">The histogram shows that the majority of "DMC" values for both categories are between 0 and 10. There are fewer occurrences of higher "DMC" values. The distribution of "DMC" values for "Fire" and "Not Fire" is similar, with both categories having a peak around 0-10. However, there is a slight skew towards higher "DMC" values for the "Fire" category compared to the "Not Fire" category.</p>
+          <div class="chart-container center">
+            <img src="../static/EDA Chart images/DMC.png" alt="Wind Speed vs Fire Spread" style="max-width: 100%; height: auto;">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12 m6">
+          <h5 class="center">FFMC</h5>
+          <p class="light">The histogram shows that the majority of "FFMC" values for both categories are between 60 and 90. There are fewer occurrences of lower "FFMC" values. The distribution of "FFMC" values for "Fire" and "Not Fire" is different. For the "Fire" category, there is a clear peak around 90, while for the "Not Fire" category, the distribution is more spread out with peaks around 60 and 70. This suggests that higher "FFMC" values are more associated with "Fire" incidents.</p>
+          <div class="chart-container center">
+            <img src="../static/EDA Chart images/FFMC.png" alt="Wind Speed vs Fire Spread" style="max-width: 100%; height: auto;">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12 m6">
+          <h5 class="center">FWI</h5>
+          <p class="light">The histogram shows that the majority of "FWI" values for both categories are between 0 and 5. There are fewer occurrences of higher "FWI" values. The distribution of "FWI" values for "Fire" and "Not Fire" is different. For the "Fire" category, there is a clear peak around 0-5, while for the "Not Fire" category, the distribution is more spread out with a peak around 0-5 but with more occurrences of higher "FWI" values compared to the "Fire" category. This suggests that higher "FWI" values are more associated with "Fire" incidents, but there is still a significant overlap between the two categories.</p>
+          <div class="chart-container center">
+            <img src="../static/EDA Chart images/FWI.png" alt="Wind Speed vs Fire Spread" style="max-width: 100%; height: auto;">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12 m6">
+          <h5 class="center">ISI</h5>
+          <p class="light">The histogram shows that the majority of "ISI" values for both categories are between 0 and 5. There are fewer occurrences of higher "ISI" values. The distribution of "ISI" values for "Fire" and "Not Fire" is different. For the "Fire" category, there is a clear peak around 0-2.5, while for the "Not Fire" category, the distribution is more spread out with a peak around 0-2.5 but with more occurrences of higher "ISI" values compared to the "Fire" category. This suggests that higher "ISI" values are more associated with "Fire" incidents, but there is still a significant overlap between the two categories.</p>
+          <div class="chart-container center">
+            <img src="../static/EDA Chart images/ISI.png" alt="Wind Speed vs Fire Spread" style="max-width: 100%; height: auto;">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12 m6">
+          <h5 class="center">Month Wise Fire analysis</h5>
+          <p class="light">The image shows a bar chart representing the number of fire and non-fire incidents in the Sidi-Bel Abbes region for different months.</p>
+          <div class="chart-container center">
+            <img src="../static/EDA Chart images/Monthwise Fire Analysis.png" alt="Wind Speed vs Fire Spread" style="max-width: 100%; height: auto;">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12 m6">
+          <h5 class="center">Pie Chart of Classes</h5>
+          <p class="light">This Chart showing Pie chart of classes distribution</p>
+          <div class="chart-container center">
+            <img src="../static/EDA Chart images/Pie_chart of classes.png" alt="Wind Speed vs Fire Spread" style="max-width: 100%; height: auto;">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12 m6">
+          <h5 class="center">Rain</h5>
+          <p class="light">the histogram suggests that the occurrence of fire incidents in the region is inversely related to the amount of rainfall. Higher levels of rainfall are associated with lower numbers of fire incidents.</p>
+          <div class="chart-container center">
+            <img src="../static/EDA Chart images/Rain.png" alt="Wind Speed vs Fire Spread" style="max-width: 100%; height: auto;">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12 m6">
+          <h5 class="center">RH</h5>
+          <p class="light">the histogram suggests that relative humidity is not a primary driver of fire incidents in the region. Other factors are likely more influential in determining the occurrence of fires</p>
+          <div class="chart-container center">
+            <img src="../static/EDA Chart images/RH.png" alt="Wind Speed vs Fire Spread" style="max-width: 100%; height: auto;">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12 m6">
+          <h5 class="center">Temperature</h5>
+          <p class="light">the histogram suggests a strong positive relationship between maximum temperature and fire incidents in the region. Higher temperatures are associated with a significantly increased risk of fires.</p>
+          <div class="chart-container center">
+            <img src="../static/EDA Chart images/Temperature.png" alt="Wind Speed vs Fire Spread" style="max-width: 100%; height: auto;">
+          </div>
+        </div>
+      </div>
+      
+      <div class="col s12 m6"></div>
+        <h5 class="center">Wind Speed vs Fire Spread</h5>
+        <p class="light">he histogram suggests a moderate positive relationship between wind speed and fire incidents in the region. While wind speed can contribute to fire spread, it is not as strong a predictor of fire occurrence as temperature.</p>
+        <div class="chart-container center">
+          <img src="../static/EDA Chart images/Ws.png" alt="Wind Speed vs Fire Spread" style="max-width: 100%; height: auto;">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="page-footer black darken-1">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">FlameGuard</h5>
+          <p class="grey-text text-lighten-4">Data analysis and insights on forest fire risks can help us prepare better.</p>
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Links</h5>
+          <ul>
+            <li><a class="white-text" href="forest_fire.html">Homeo</a></li>
+            <li><a class="white-text" href="#!">Github Repo</a></li>
+            <li><a class="white-text" href="#!">Blog</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+        Made for <a class="orange-text text-lighten-3" href="#">TechWiz 5</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Materialize and JS -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $('.sidenav').sidenav();
+    });
+  </script>
+</body>
+</html>
